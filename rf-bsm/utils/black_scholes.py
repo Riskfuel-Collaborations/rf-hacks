@@ -1,6 +1,3 @@
-# RISKFUEL PROBLEM SET BLACK SCHOLES OPTION PRICER 
-# by Nikola Pocuca 
-# Created Nov 26th, 2021
 import numpy as np
 import scipy.stats as si
 
