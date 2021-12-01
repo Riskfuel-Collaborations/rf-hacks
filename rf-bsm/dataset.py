@@ -13,7 +13,7 @@ r_bound = [0.001, 0.05]
 sigma_bound = [0.05, 1.5]
 
 def generate_unif(n):
-    # insert your smarter strategy here
+    # TODO: modify me!
     return (np.random.rand(n,5))
 
 def generate_black_scholes_put_data(n):
