@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This problem set consists of training a deep neural network to approximate the analytic Black-Scholes pricer of a standard European put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. The winner will be chosen based on model performance (ie. Mean and Maximum Squared Error). 
+This problem set consists of training a deep neural network to approximate the analytic Black-Scholes pricer of a standard European put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. Your goal is to obtain the best model performance (ie. Mean and Maximum Squared Error). 
 
 
 ## Black Scholes Model 
