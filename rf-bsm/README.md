@@ -5,8 +5,6 @@
 
 
 ## Introduction
-Welcome to MacHacks! My name is Nik and I am representing Riskfuel (RF) as a judge during this hackathon. 
-
 
 The RF problem set consists of training an ML model to approximate the analytic black scholes pricer of a standard european put option. The ML model will be evaluated on a validation set defined on a closed domain of input parameters. The winner will be chosen based on model performance (ie. best Mean Absolute Error). 
 
