@@ -12,13 +12,13 @@ T_bound = [0.0, 5.0]
 r_bound = [0.001, 0.05]
 sigma_bound = [0.05, 1.5]
 
-def generate_unif(n):
+def generate_data(n):
     # TODO: modify me!
     return (np.random.rand(n,5))
 
 def generate_black_scholes_put_data(n):
 
-    X = generate_unif(n)
+    X = generate_data(n)
 
     S_delta = S_bound[-1] - S_bound[0]
     K_delta = K_bound[-1] - K_bound[0]
