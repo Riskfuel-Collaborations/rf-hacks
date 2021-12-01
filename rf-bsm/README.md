@@ -6,12 +6,12 @@
 
 ## Introduction
 
-This problem set consists of training a deep neural network to approximate the analytic Black Scholes pricer of a standard European put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. The winner will be chosen based on model performance (ie. Mean and Maximum Absolute Error). 
+This problem set consists of training a deep neural network to approximate the analytic Black-Scholes pricer of a standard European put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. The winner will be chosen based on model performance (ie. Mean and Maximum Absolute Error). 
 
 
 ## Black Scholes Model 
 
-The Black Scholes model (BSM) was concieved by a McMaster alumni Myron Scholes and his co-author Fischer Black. From the BSM, one can derive an analytic solution to a European Put option, the solution has been provided to you in `utils/black_scholes.py`. The pricer takes in the following variables: 
+The Black-Scholes Model (BSM) was concieved by a McMaster alumni Myron Scholes and his co-author Fischer Black. From the BSM, one can derive an analytic solution to a European Put option, the solution has been provided to you in `utils/black_scholes.py`. The pricer takes in the following variables: 
 
 - Stock price (S) 
 - Strike (K)
