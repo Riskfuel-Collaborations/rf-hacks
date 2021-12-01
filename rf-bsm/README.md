@@ -64,14 +64,14 @@ The output should look something like this:
 
 The validation code will be checked manually for all teams. 
 
-## *Do not put the analytic pricer as part of your model. This is considered cheating and you will be automatically disqualified.* 
+## *Do not use the analytic pricer as part of your model. This is considered cheating and you will be automatically disqualified.* 
 
-You are free to use whatever packages/frameworks you like provided that I am able to install it on a `ubuntu 20.04` docker image found here `https://hub.docker.com/_/ubuntu`. When writing code to evaluate your model, feel free to delete the skeleton code within `riskfuel_test.py`. 
+You are free to use any packages/frameworks you like provided that they can be run and installed on a `ubuntu 20.04` docker image found here `https://hub.docker.com/_/ubuntu`. When writing code to evaluate your model, feel free to delete the skeleton code within `riskfuel_test.py`. 
 
 ## Recommendations 
 
 Pytorch is a great framework for training ML models that has options for CPU training. Pytorch also allows you to implicity define gradients in an interprative fashion as opposed to other frameworks such as Tensorflow. 
 
-I whole-heartedly advocate Pytorch for this problem set `https://pytorch.org/` over other packages. You will NOT be penalized for not using Pytorch if you are more comfortable with other packages. 
+We whole-heartedly advocate Pytorch for this problem set `https://pytorch.org/` over other packages. You will NOT be penalized for not using Pytorch if you are more comfortable with other packages. 
 
 
