@@ -1,7 +1,3 @@
-# RISKFUEL PROBLEM SET DEMO 
-# by Nikola Pocuca
-
-
 # imports. 
 import numpy as np 
 import torch 
