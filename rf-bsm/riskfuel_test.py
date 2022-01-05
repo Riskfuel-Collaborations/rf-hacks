@@ -1,12 +1,8 @@
 import pandas as pd
-from pandas import DataFrame
 import argparse 
 import sys
 
-from pandas.core.accessor import PandasDelegate
-
-
-# load whatever imports you need, make sure to add them to the requirements.txt file. 
+# Load whatever imports you need, but make sure to add them to the requirements.txt file. 
 
 
 # my imports. 
@@ -16,16 +12,11 @@ import torch.nn.functional as F
 import torch.utils.data as Data 
 import torch.nn as nn 
 
-
-import pdb
 import pandas as pd
 import matplotlib.pyplot as plt 
 
 
-
-
-
-def riskfuel_test(df: DataFrame, ) -> float: 
+def riskfuel_test(df: pd.DataFrame, ) -> float: 
     """
         
         Riskfuel Testing Function
