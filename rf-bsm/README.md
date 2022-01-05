@@ -6,15 +6,15 @@
 
 ## Introduction
 
-This problem set consists of training a deep neural network to approximate the analytic Black-Scholes pricer of a standard European put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. Your goal is to obtain the best model performance (ie. Mean and Maximum Squared Error). 
+This problem set consists of training a deep neural network to approximate the analytic Black-Scholes price of a European Put option. The neural net will be evaluated on a validation set defined on a closed domain of input parameters. Your goal is to obtain the best model performance (ie. Mean and Maximum Squared Error). 
 
 
-## Black Scholes Model 
+## Black-Scholes Model 
 
-The Black-Scholes Model (BSM) was concieved by a McMaster alumni Myron Scholes and his co-author Fischer Black. From the BSM, one can derive an analytic solution to a European Put option, the solution has been provided to you in `utils/black_scholes.py`. The pricer takes in the following variables: 
+The Black-Scholes Model was concieved by McMaster alumni Myron Scholes and his co-author Fischer Black. From Black-Scholes, one can derive an analytic solution to a European Put option, the solution has been provided to you in `utils/black_scholes.py`. The pricer takes in the following variables: 
 
-- Stock price (S) 
-- Strike (K)
+- Underlying stock price (S) 
+- Strike price (K)
 - Time to maturity (T)
 - Risk free interest rate (r) 
 - Volatility (sigma)
@@ -43,7 +43,7 @@ sigma_bound = [0.05, 1.5]
 
 ## Constraints/Requirements 
 
-The `riskfuel_test.py` file has validation code on how each team will be evaluated. I must be able to download your git repo, run `pip install -r requirements.txt`, and then run 
+The `riskfuel_test.py` file has validation code describing how each team will be evaluated. We must be able to download your git repo, run `pip install -r requirements.txt`, and then run 
 
 ```bash 
 python riskfuel_test.py --data <validation.csv>
@@ -64,7 +64,7 @@ The output should look something like this:
 
 The validation code will be checked manually for all teams. 
 
-## *Do not use the analytic pricer as part of your model. This is considered cheating and you will be automatically disqualified.* 
+### *Do not use the analytic pricer as part of your model. This is considered cheating and you will be automatically disqualified.* 
 
 You are free to use any packages/frameworks you like provided that they can be run and installed on a `ubuntu 20.04` docker image found here `https://hub.docker.com/_/ubuntu`. When writing code to evaluate your model, feel free to delete the skeleton code within `riskfuel_test.py`. 
 
