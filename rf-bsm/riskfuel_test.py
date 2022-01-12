@@ -77,9 +77,8 @@ def riskfuel_test(df: pd.DataFrame, ) -> float:
 
     # =====================================================   END OF SKELETON CODE  =====================================================================================================
 
-
-    # calculate mean absolute error.
-    result = (y_hat - y).abs().mean()
+    # calculate mean squared error.
+    result = (y_hat - y).pow(2).mean()
 
     # return performance metric. 
     return float(result)
