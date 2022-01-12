@@ -41,6 +41,8 @@ sigma_bound = [0.05, 1.5]
 
 ```
 
+There is a file called `dataset.py` that will assist you in generating a training/validation set. 
+
 ## Constraints/Requirements 
 
 The `riskfuel_test.py` file has validation code describing how each team will be evaluated. We must be able to download your git repo, run `pip install -r requirements.txt`, and then run 
