@@ -1,10 +1,12 @@
 import numpy as np
 import scipy.stats as si
 
+
 n = si.norm.pdf
 N = si.norm.cdf
 
-# See Paul Wilmot Introduces Quantitative Finance pg 177 - 181 for derivations and context. 
+
+# See Paul Wilmot Introduces Quantitative Finance pg 177 - 181 for derivations and context.
 def d(i, A, B, r, sigma, T):
     '''
     Helper function for Black-Scholes style formulas
@@ -16,10 +18,10 @@ def d(i, A, B, r, sigma, T):
         return d_2 + (sigma * np.sqrt(T))
 
 
-# black scholes analytic pricer. 
+# black scholes analytic pricer.
 def black_scholes_put(S, K, T, r, sigma):
     """
-    PUT Option: 
+    PUT Option:
 
     S: spot price
     K: strike price
@@ -30,9 +32,9 @@ def black_scholes_put(S, K, T, r, sigma):
     """
     d1 = d(1, S, K, r, sigma, T)
     d2 = d(2, S, K, r, sigma, T)
-    
-    # check conditions. 
-    natm = (S != K)   # not at the money 
+
+    # check conditions.
+    natm = (S != K)   # not at the money
     natx = (T != 0)   # not at expiry
     condition = natm | natx
 

@@ -1,120 +1,72 @@
-import numpy as np
+import pandas as pd
 import torch
 import torch.nn.functional as F
-import torch.utils.data as Data
-import torch.nn as nn
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
-from torch.autograd import Variable
-from utils.black_scholes import black_scholes_put
-import torch.optim as optim
+from torch import nn
+from torch import optim
 
 
 class PutNet(nn.Module):
     """
-
     Example of a Neural Network that could be trained price a put option.
     TODO: modify me!
-
     """
 
     def __init__(self) -> None:
         super(PutNet, self).__init__()
-        self.l1 = nn.Linear(5,20)
-        self.l2 = nn.Linear(20,20)
-        self.l3 = nn.Linear(20,20)
-        self.out = nn.Linear(20,1)
 
-        self.x_scaler = { 'mean': torch.zeros(5), 'std': torch.ones(5) }
-        self.y_scaler = { 'mean': torch.zeros(1), 'std': torch.ones(1) }
-
-    def transform(self, x, scaler):
-        mu = scaler['mean']
-        std = scaler['std']
-        return ((x - mu)/ std)
-
-    def inverse_transform(self, x, scaler):
-        mu = scaler['mean']
-        std = scaler['std']
-        return( x * std + mu)
-
-    def fit_scalers(self, X , y):
-        mu_x = X.mean(0)
-        std_x = X.std(0)
-
-        mu_y = y.mean()
-        std_y = y.std()
-
-        self.x_scaler['mean'] = mu_x
-        self.x_scaler['std'] = std_x
-        self.y_scaler['mean'] = mu_y
-        self.y_scaler['std'] = std_y
-
+        self.l1 = nn.Linear(5, 20)
+        self.l2 = nn.Linear(20, 20)
+        self.l3 = nn.Linear(20, 20)
+        self.out = nn.Linear(20, 1)
 
     def forward(self, x):
         x = F.relu(self.l1(x))
         x = F.relu(self.l2(x))
         x = F.relu(self.l3(x))
         x = self.out(x)
-        return (x)
+        return x
 
 
+def main():
+    """Train the model and save the checkpoint"""
 
-if __name__ == "__main__":
+    # Create model
+    model = PutNet()
 
+    # Load dataset
+    df = pd.read_csv("bs-put-1k.csv")
 
+    # Set up training
+    x = torch.Tensor(df[["S", "K", "T", "r", "sigma"]].to_numpy())
+    y = torch.Tensor(df[["value"]].to_numpy())
 
-    # create model
-    mm = PutNet()
+    criterion = nn.MSELoss()
+    optimizer = optim.SGD(model.parameters(), lr=1e-3, momentum=0.9)
 
-    # load dataset
-    dd = pd.read_csv("bs-put-1k.csv")
+    # Train for 500 epochs
+    for i in range(100):
 
+        # TODO: Modify to account for dataset size
+        y_hat = model(x)
+        y = y
 
-    # set up training
-    X = torch.Tensor(dd[['S','K','T','r','sigma']].to_numpy())
-    y = torch.Tensor(dd[['value']].to_numpy())
+        # Calculate training loss
+        training_loss = criterion(y_hat, y)
 
-
-    mm.fit_scalers(X,y)
-
-    with torch.no_grad():
-        X = mm.transform(X, mm.x_scaler)
-        y = mm.transform(y, mm.y_scaler)
-
-
-    X = Variable(X)
-    y = Variable(y)
-    loss = torch.nn.MSELoss()
-    optimizer = optim.SGD(mm.parameters(), lr = 1e-3, momentum=0.9)
-
-
-    # train
-    for i in range(500):
-
-        # TODO: modify to account for dataset size
-        y_hat_i = mm(X)
-        y_i = y
-
-        # calculate training loss
-        training_loss = loss(y_hat_i, y_i)
-
-        # take a step.
+        # Take a step
         optimizer.zero_grad()
         training_loss.backward()
         optimizer.step()
 
-        # check validation loss
+        # Check validation loss
         with torch.no_grad():
             # TODO: use a proper validation set
-            validation_loss = loss(mm(X), y)
+            validation_loss = criterion(model(x), y)
 
-        print(f"Iteration: {i} | Training Loss: {training_loss} | Validation Loss {validation_loss} ")
+        print(f"Iteration: {i} | Training Loss: {training_loss:.4f} | Validation Loss: {validation_loss:.4f} ")
+
+    torch.save(model.state_dict(), "simple-model.pt")
 
 
-    torch.save(mm.state_dict(), "simple-model.pt")
-
-    y_unscaled = mm.inverse_transform(y, scaler= mm.y_scaler)
-    y_hat_unscaled = mm.inverse_transform(y_hat_i, scaler=mm.y_scaler)
+if __name__ == "__main__":
+    main()
