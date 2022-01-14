@@ -72,7 +72,7 @@ You are free to use any packages/frameworks you like provided that they can be r
 
 ## Recommendations 
 
-Pytorch is a great framework for training ML models that has options for CPU training. Pytorch also allows you to implicity define gradients in an interprative fashion as opposed to other frameworks such as Tensorflow. 
+Pytorch is a great framework for training ML models that has options for CPU training. Pytorch also allows you to implicity define gradients in an interpretive fashion as opposed to other frameworks such as Tensorflow. 
 
 We whole-heartedly advocate Pytorch for this problem set `https://pytorch.org/` over other packages. You will NOT be penalized for not using Pytorch if you are more comfortable with other packages. 
 
