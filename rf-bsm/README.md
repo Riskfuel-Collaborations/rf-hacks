@@ -76,4 +76,7 @@ Pytorch is a great framework for training ML models that has options for CPU tra
 
 We whole-heartedly advocate Pytorch for this problem set `https://pytorch.org/` over other packages. You will NOT be penalized for not using Pytorch if you are more comfortable with other packages. 
 
+Some files have been provided for you to start, they are missing some basic ML techniques but provide an overall basis for how to train bsms. They are given as 
+`demo.py`, and `dataset.py`. 
+
 
